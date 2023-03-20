@@ -45,10 +45,10 @@ jobs:
         password: Kiedis228a04
 
     - name: Push
-    uses: docker/build-push-action@v2
-    with:
-      push: true
-      tags: denislukianov2001/infra-web:latest 
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: denislukianov2001/infra-web:latest 
 
   deploy:
     runs-on: ubuntu-latest
