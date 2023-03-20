@@ -14,7 +14,7 @@
 
 Добавлять отзывы, комментарии и ставить оценки могут только аутентифицированные пользователи.
 
-![workflow](https://github.com/DenisLukianov21/yamdb_final/workflows/yamdb_wordkflow.yml/badge.svg)
+[![.github/workflows/yamdb_workflow.yaml](https://github.com/DenisLukianov21/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)](https://github.com/DenisLukianov21/yamdb_final/actions/workflows/yamdb_workflow.yaml)
 
 # Запуск проекта в dev-режиме
 
