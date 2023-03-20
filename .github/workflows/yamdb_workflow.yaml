@@ -2,7 +2,14 @@ name: Django-app-workflow
 
 on: [push]
 
+
 jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello
+    run : echo "Hello"
+
   tests:
     runs-on: ubuntu-latest
 
