@@ -29,7 +29,7 @@ jobs:
 
   push:
     runs-on: ubuntu-latest
-    needs: flake8
+    needs: tests
 
     steps:
     - name: Check
@@ -52,7 +52,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: push_and_build_dockerfile
+    needs: push
 
     steps:
     - name: ssh
@@ -69,7 +69,7 @@ jobs:
 
   telegram:
     runs-on: ubuntu-latest
-    needs: deploy_project
+    needs: deploy
     steps:
     - name: send_message
       uses: appleboy/telegram-action@master
