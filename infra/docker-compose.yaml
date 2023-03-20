@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - db_value:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+  web:
+    image: denislukianov2001/infra-web
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - ./.env 
+  ngix:
+    image: nginx:1.21.3-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static_value:/Users/denis/DEV/infra_sp2/api_yamdb/static
+    depends_on:
+      - web
+
+volumes:
+  static_value:
+  db_value:
