@@ -46,10 +46,6 @@ jobs:
         username: denislukianov2001
         password: Kiedis228a04
 
-    - name: Walk into dockerfile directory
-      run: |
-        cd api_yamdb/
-
     - name: Push
       uses: docker/build-push-action@v2
       with:
