@@ -50,7 +50,7 @@ jobs:
       run: |
         cd api_yamdb
         ls
-        
+
     - name: Push
       uses: docker/build-push-action@v2
       with:
@@ -65,9 +65,9 @@ jobs:
     - name: ssh
       uses: appleboy/ssh-action@master
       with:
-        host:
-        username:
-        key:
+        host: 51.250.111.27
+        username: denis
+        key: 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
         script: |
           sudo docker pull denislukianov2001/infra-web
           sudo docker stop $(sudo docker ps -a -q)
@@ -81,6 +81,6 @@ jobs:
     - name: send_message
       uses: appleboy/telegram-action@master
       with:
-        to:
-        token:
+        to: 872614305
+        token: 5683361091:AAGhGkruSZcu_TC7YXu_ByccQ_gr-Sjqeic
         message: ${{ github.workflow }} успешно выполнен! 
