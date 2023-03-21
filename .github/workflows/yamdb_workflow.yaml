@@ -68,6 +68,7 @@ jobs:
         host: 51.250.111.27
         username: denis
         key: ${{ secrets.MY_SSH }}
+        passphrase: 1
         script: |
           sudo docker pull denislukianov2001/infra-web
           sudo docker stop $(sudo docker ps -a -q)
