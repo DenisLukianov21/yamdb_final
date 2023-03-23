@@ -61,7 +61,7 @@ jobs:
           with:
             host: 51.250.111.27
             username: denis
-            key: ${{ secrets.MY_SSH }}
+            key: ${{ secrets.SSH_KEY }}
             passphrase: 1
             script: |
               sudo docker-compose stop
