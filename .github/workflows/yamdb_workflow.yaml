@@ -43,8 +43,8 @@ jobs:
     - name: Login
       uses: docker/login-action@v1 
       with:
-        username: denislukianov2001
-        password: Kiedis228a04
+        username: ${{ secrets.DOCKER_LOGIN }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push
       uses: docker/build-push-action@v2
@@ -59,20 +59,19 @@ jobs:
         - name: executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
           with:
-            host: 51.250.111.27
-            username: denis
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
             key: ${{ secrets.SSH_KEY }}
-            passphrase: 1
+            passphrase: ${{ secrets.PASSPHRASE }}
             script: |
               sudo docker-compose stop
               sudo docker-compose rm web
               touch .env
-              echo DB_NAME=postgres >> .env
-              echo POSTGRES_USER=postgres >> .env
-              echo POSTGRES_PASSWORD=postgres >> .env
-              echo DB_HOST=db >> .env
-              echo DB_PORT=5432 >> .env
-              echo SECRET_KEY=abvswef12ae >> .env
+              echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+              echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+              echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+              echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+              echo DB_PORT=${{ secrets.DB_PORT }} >> .env
               sudo docker-compose up -d
 
 
@@ -83,6 +82,6 @@ jobs:
     - name: send_message
       uses: appleboy/telegram-action@master
       with:
-        to: 872614305
-        token: 5683361091:AAGhGkruSZcu_TC7YXu_ByccQ_gr-Sjqeic
+        to: ${{ secrets.TO }}
+        token: ${{ secrets.TOKEN }}
         message: ${{ github.workflow }} успешно выполнен! 
