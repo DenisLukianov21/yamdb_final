@@ -9,9 +9,7 @@ services:
       - ./.env
   web:
     image: denislukianov2001/infra-web
-    command: |
-      cd api_yamdb
-      python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
     restart: always

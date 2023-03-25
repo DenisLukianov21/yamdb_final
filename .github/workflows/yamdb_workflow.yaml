@@ -49,12 +49,14 @@ jobs:
     - name: Push
       uses: docker/build-push-action@v2
       with:
+        context: api_yamdb
         push: true
         tags: denislukianov2001/infra-web:latest 
 
   deploy:
       runs-on: ubuntu-latest
       needs: push
+      if: github.ref == 'refs/heads/master'
       steps:
         - name: executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
