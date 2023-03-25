@@ -10,6 +10,8 @@ services:
   web:
     image: denislukianov2001/infra-web
     restart: always
+    volumes:
+      - static_value:/app/static/
     depends_on:
       - db
     env_file:
